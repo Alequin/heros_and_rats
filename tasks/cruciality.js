@@ -12,6 +12,9 @@ Cruciality.prototype.lessThan = function(toCompare){
   return this.compare(toCompare) < 0;
 }
 
+Cruciality.prototype.equalTo= function(toCompare){
+  return this.compare(toCompare) === 0;
+}
 
 Cruciality.prototype.compare = function(toCompare){
   if(this.type != toCompare.type){
