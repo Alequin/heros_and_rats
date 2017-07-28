@@ -11,4 +11,11 @@ Cruciality.prototype.greaterThan = function(toCompare){
   return this.value > toCompare.value;
 }
 
+Cruciality.prototype.lessThan = function(toCompare){
+  if(this.type != toCompare.type){
+    throw new Error("Cannot compare values of different types");
+  }
+  return this.value < toCompare.value;
+}
+
 module.exports = Cruciality;
