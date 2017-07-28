@@ -27,4 +27,19 @@ Hero.prototype.addTask = function(task){
   this.tasks.push(task);
 }
 
+Hero.prototype.viewTasks = function(callBack){
+
+  var output = ""
+  for(var j in this.tasks){
+    output += callBack(this.tasks[j]);
+    if(j < this.tasks.length - 1){
+      output += "\n";
+    }
+  }
+
+  return output;
+}
+
+
+
 module.exports = Hero;
