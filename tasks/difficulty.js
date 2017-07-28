@@ -1,16 +1,18 @@
 var Cruciality = require("./cruciality.js");
 
+var typeIdentifier = "difficulty"
+
 var difficulty = {
 
-  basic: new Cruciality("difficulty", 0),
+  basic: new Cruciality(typeIdentifier, 0),
 
-  easy: new Cruciality("difficulty", 1),
+  easy: new Cruciality(typeIdentifier, 1),
 
-  normal: new Cruciality("difficulty", 2),
+  normal: new Cruciality(typeIdentifier, 2),
 
-  hard: new Cruciality("difficulty", 3),
+  hard: new Cruciality(typeIdentifier, 3),
 
-  extreme: new Cruciality("difficulty", 4),
+  extreme: new Cruciality(typeIdentifier, 4),
 
 }
 
