@@ -6,7 +6,7 @@ function Cruciality(type, value){
 
 Cruciality.prototype.greaterThan = function(toCompare){
   if(this.type != toCompare.type){
-    throw "The two values are not of the same type"
+    throw new Error("Cannot compare values of different types");
   }
   return this.value > toCompare.value;
 }
