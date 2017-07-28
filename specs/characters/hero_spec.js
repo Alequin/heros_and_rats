@@ -31,5 +31,12 @@ describe("hero", function(){
     assert.strictEqual(hero1.health, startHealth);
   });
 
+  it("cannot eat to gain health more than max health", function(){
+    var startHealth = hero1.health;
+    var food = new Food("macaroon", 5, false);
+    hero1.eat(food);
+    assert.strictEqual(hero1.health, startHealth);
+  });
+
 
 });
