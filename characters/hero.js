@@ -33,19 +33,27 @@ Hero.prototype.viewAllTasks = function(callBack){
   );
 }
 
+Hero.prototype.viewCompletedTasks = function(callBack){
+  return this.viewTasks(
+    function(task){
+      if(task.isComplete){
+        return task.description
+      }else{
+        return "";
+      }
+    }
+  );
+}
+
 Hero.prototype.viewTasks = function(callBack){
 
   var output = ""
   for(var j in this.tasks){
-    output += callBack(this.tasks[j]);
-    if(j < this.tasks.length - 1){
-      output += "\n";
+    var returned = callBack(this.tasks[j]);
+    if(returned != ""){
+      output += returned + "\n";
     }
   }
-
-  return output;
+  return output.slice(0, output.length-1);
 }
-
-
-
 module.exports = Hero;
