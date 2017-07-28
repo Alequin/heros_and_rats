@@ -18,7 +18,9 @@ describe("hero", function(){
   });
 
   it("can say name", function(){
-
+    assert.strictEqual(hero1.sayName(), "Hail and well met my dudes. Im Taako");
   });
+
+  
 
 });

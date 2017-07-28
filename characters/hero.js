@@ -9,4 +9,8 @@ function Hero(name, health, favouriteFood){
   this.tasks = [];
 }
 
+Hero.prototype.sayName = function(){
+  return "Hail and well met my dudes. Im " + this.name;
+}
+
 module.exports = Hero;
