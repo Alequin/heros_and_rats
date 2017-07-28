@@ -113,4 +113,22 @@ describe("hero", function(){
     hero1.sortTasksByDifficulty();
     assert.deepEqual(hero1.tasks, tasks);
   })
+
+  it("can sort tasks by urgency", function(){
+    for(var task of tasks){
+      hero1.addTask(task);
+    }
+    tasks.sort(function(task){return task.urgency.value});
+    hero1.sortTasksByUrgency();
+    assert.deepEqual(hero1.tasks, tasks);
+  })
+
+  it("can sort tasks by reward", function(){
+    for(var task of tasks){
+      hero1.addTask(task);
+    }
+    tasks.sort(function(task){return task.reward});
+    hero1.sortTasksByReward();
+    assert.deepEqual(hero1.tasks, tasks);
+  })
 });
