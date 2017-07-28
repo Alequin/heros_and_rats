@@ -27,6 +27,12 @@ Hero.prototype.addTask = function(task){
   this.tasks.push(task);
 }
 
+Hero.prototype.viewAllTasks = function(callBack){
+  return this.viewTasks(
+    function(task){return task.description}
+  );
+}
+
 Hero.prototype.viewTasks = function(callBack){
 
   var output = ""
