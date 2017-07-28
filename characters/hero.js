@@ -14,4 +14,8 @@ Hero.prototype.sayName = function(){
   return "Hail and well met my dudes. Im " + this.name;
 }
 
+Hero.prototype.eat = function(food){
+  this.health += food.modifier;
+}
+
 module.exports = Hero;
