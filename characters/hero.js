@@ -27,26 +27,7 @@ Hero.prototype.addTask = function(task){
   this.tasks.push(task);
 }
 
-Hero.prototype.viewAllTasks = function(callBack){
-  return this.viewTasks(
-    function(task){return task.description}
-  );
-}
-
-Hero.prototype.viewCompletedTasks = function(callBack){
-  return this.viewTasks(
-    function(task){
-      if(task.isComplete){
-        return task.description
-      }else{
-        return "";
-      }
-    }
-  );
-}
-
 Hero.prototype.viewTasks = function(callBack){
-
   var output = ""
   for(var j in this.tasks){
     var returned = callBack(this.tasks[j]);
@@ -56,4 +37,33 @@ Hero.prototype.viewTasks = function(callBack){
   }
   return output.slice(0, output.length-1);
 }
+
+Hero.prototype.viewTasksByCompleteState = function(state, callBack){
+  var result = this.viewTasks(
+    function(task){
+      if(task.isComplete == state){
+        return task.description
+      }else{
+        return "";
+      }
+    }
+  );
+
+  return result;
+}
+
+Hero.prototype.viewAllTasks = function(callBack){
+  return this.viewTasks(
+    function(task){return task.description}
+  );
+}
+
+Hero.prototype.viewCompletedTasks = function(callBack){
+  return this.viewTasksByCompleteState(true, callBack);
+}
+
+Hero.prototype.viewIncompleteTasks = function(callBack){
+  return this.viewTasksByCompleteState(false, callBack);
+}
+
 module.exports = Hero;
