@@ -13,4 +13,9 @@ describe("task", function(){
     assert.strictEqual(task.isComplete, false);
   });
 
+  it("cannont construct diffculty with cruciality of wrong type", function(){
+    var test = function(){new Task(urgency.low, urgency.medium, 100)}
+    assert.throws(test, Error, "Difficulty must be of type difficulty. Current: urgency");
+  });
+
 });
