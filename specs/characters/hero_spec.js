@@ -49,6 +49,14 @@ describe("hero", function(){
     assert.strictEqual(hero1.health, startHealth);
   });
 
+  it("will gain extra health if the food is their favourite", function(){
+    var startHealth = hero1.health;
+    var food = new Food("Ferrero Rocher", 5, false);
+    hero1.health -= 7.5;
+    hero1.eat(food);
+    assert.strictEqual(hero1.health, startHealth);
+  });
+
   it("will loose health if food is poisoned", function(){
     var startHealth = hero1.health;
     food1.isPoisoned = true;
