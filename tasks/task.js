@@ -1,5 +1,5 @@
 
-function Task(difficulty, urgency, reward){
+function Task(description, difficulty, urgency, reward){
 
   if(difficulty.type != "difficulty"){
     throw new Error("Difficulty must be of type difficulty. Current: " + difficulty.type);
@@ -8,6 +8,7 @@ function Task(difficulty, urgency, reward){
     throw new Error("Difficulty must be of type difficulty. Current: " + urgency.type);
   }
 
+  this.description = description;
   this.difficulty = difficulty;
   this.urgency = urgency;
   this.reward = reward;
