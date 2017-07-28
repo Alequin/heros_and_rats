@@ -77,4 +77,12 @@ Hero.prototype.sortTasksByDifficulty = function(){
   return this.tasks.sort(function(task){return task.difficulty.value});
 }
 
+Hero.prototype.sortTasksByUrgency = function(){
+  return this.tasks.sort(function(task){return task.urgency.value});
+}
+
+Hero.prototype.sortTasksByReward = function(){
+  return this.tasks.sort(function(task){return task.reward});
+}
+
 module.exports = Hero;
