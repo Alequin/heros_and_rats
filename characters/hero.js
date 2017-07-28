@@ -73,4 +73,8 @@ Hero.prototype.viewIncompleteTasks = function(){
   return this.viewTasksByCompleteState(false);
 }
 
+Hero.prototype.sortTasksByDifficulty = function(){
+  return this.tasks.sort(function(task){return task.difficulty.value});
+}
+
 module.exports = Hero;
