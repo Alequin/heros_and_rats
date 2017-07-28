@@ -84,4 +84,16 @@ describe("hero", function(){
     var result = hero1.viewCompletedTasks()
     assert.strictEqual(result, expected);
   });
+
+  it("can view incompleted tasks", function(){
+    tasks[0].isComplete = true;
+    tasks[3].isComplete = true;
+    for(var task of tasks){
+      hero1.addTask(task);
+    }
+
+    var expected = "task 2\ntask 3\ntask 5"
+    var result = hero1.viewIncompleteTasks()
+    assert.strictEqual(result, expected);
+  });
 });
