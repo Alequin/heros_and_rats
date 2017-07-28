@@ -28,4 +28,10 @@ describe("difficulty", function(){
     assert.strictEqual(difficulty.extreme.value, 4);
   });
 
+  it("can compare values", function(){
+    assert.strictEqual(difficulty.basic.greaterThan(difficulty.easy), false);
+    assert.strictEqual(difficulty.basic.lessThan(difficulty.easy), true);
+    assert.strictEqual(difficulty.basic.equalTo(difficulty.basic), true);
+  });
+
 });
