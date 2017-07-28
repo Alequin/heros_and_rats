@@ -17,9 +17,16 @@ Hero.prototype.sayName = function(){
 Hero.prototype.eat = function(food){
   if(food.isPoisoned){
     this.health -= food.modifier;
-  }else
-  if((this.health + food.modifier) <= this.maxHealth){
-    this.health += food.modifier;
+    return;
+  }
+
+  var modifier = food.modifier;
+  if(food.name == this.favouriteFood){
+    modifier *= 1.5;
+  }
+
+  if((this.health + modifier) <= this.maxHealth){
+    this.health += modifier;
   }
 }
 
