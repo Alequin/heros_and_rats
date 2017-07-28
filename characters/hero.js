@@ -15,7 +15,9 @@ Hero.prototype.sayName = function(){
 }
 
 Hero.prototype.eat = function(food){
-  this.health += food.modifier;
+  if((this.health + food.modifier) <= this.maxHealth){
+    this.health += food.modifier;
+  }
 }
 
 module.exports = Hero;
