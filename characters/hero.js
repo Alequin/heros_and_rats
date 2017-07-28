@@ -5,6 +5,7 @@ function Hero(name, health, favouriteFood){
   this.health = health;
   this.favouriteFood = favouriteFood;
 
+  this.maxHealth = health;
   this.money = 0;
   this.tasks = [];
 }
