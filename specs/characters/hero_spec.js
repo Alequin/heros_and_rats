@@ -104,4 +104,13 @@ describe("hero", function(){
     var result = hero1.viewIncompleteTasks()
     assert.strictEqual(result, expected);
   });
+
+  it("can sort tasks by difficulty", function(){
+    for(var task of tasks){
+      hero1.addTask(task);
+    }
+    tasks.sort(function(task){return task.difficulty.value});
+    hero1.sortTasksByDifficulty();
+    assert.deepEqual(hero1.tasks, tasks);
+  })
 });
