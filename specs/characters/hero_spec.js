@@ -1,15 +1,26 @@
 var assert = require("assert");
 var Hero = require("../../characters/hero.js");
 var Food = require("../../modifier/food.js");
+var Task = require("../../tasks/task.js");
+var difficulty = difficulty = require("../../tasks/difficulty.js");
+var urgency = require("../../tasks/urgency.js");
 
 describe("hero", function(){
 
   var hero1;
   var food1;
+  var tasks;
 
   beforeEach(function(){
     hero1 = new Hero("Taako", 50, "Ferrero Rocher");
     food1 = new Food("macaroon", 5, false);
+
+    tasks = [];
+    tasks.push(new Task("task 1", difficulty.hard, urgency.medium, 150));
+    tasks.push(new Task("task 2", difficulty.basic, urgency.minimal, 10));
+    tasks.push(new Task("task 3", difficulty.extreme, urgency.high, 500));
+    tasks.push(new Task("task 4", difficulty.normal, urgency.critical, 300));
+    tasks.push(new Task("task 5", difficulty.easy, urgency.low, 20));
   });
 
   it("on costruction has name, health and favourite food set and tasks and money empty", function(){
@@ -45,5 +56,10 @@ describe("hero", function(){
     assert.strictEqual(hero1.health, startHealth-5);
   });
 
-
+  it("can add tasks", function(){
+    for(var task of tasks){
+      hero1.addTask(task);
+    }
+    assert.deepEqual(hero1.tasks, tasks);
+  });
 });
