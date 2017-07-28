@@ -69,7 +69,7 @@ describe("hero", function(){
     }
 
     var expected = "task 1\ntask 2\ntask 3\ntask 4\ntask 5"
-    var result = hero1.viewTasks(function(task){return task.description});
+    var result = hero1.viewAllTasks()
     assert.strictEqual(result, expected);
   });
 });
