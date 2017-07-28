@@ -7,7 +7,7 @@ describe("food", function(){
     var food1 = new Food("macaroon", 5, false);
     assert.strictEqual(food1.name, "macaroon");
     assert.strictEqual(food1.modifier, 5);
-    assert.strictEqual(food1.poisoned, false);
+    assert.strictEqual(food1.isPoisoned, false);
   });
 
 });
