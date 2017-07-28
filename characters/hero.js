@@ -38,11 +38,11 @@ Hero.prototype.viewTasks = function(callBack){
   return output.slice(0, output.length-1);
 }
 
-Hero.prototype.viewTasksByCompleteState = function(state, callBack){
+Hero.prototype.viewTasksByCompleteState = function(state){
   var result = this.viewTasks(
     function(task){
       if(task.isComplete == state){
-        return task.description
+        return task.description;
       }else{
         return "";
       }
@@ -58,12 +58,12 @@ Hero.prototype.viewAllTasks = function(callBack){
   );
 }
 
-Hero.prototype.viewCompletedTasks = function(callBack){
-  return this.viewTasksByCompleteState(true, callBack);
+Hero.prototype.viewCompletedTasks = function(){
+  return this.viewTasksByCompleteState(true);
 }
 
-Hero.prototype.viewIncompleteTasks = function(callBack){
-  return this.viewTasksByCompleteState(false, callBack);
+Hero.prototype.viewIncompleteTasks = function(){
+  return this.viewTasksByCompleteState(false);
 }
 
 module.exports = Hero;
