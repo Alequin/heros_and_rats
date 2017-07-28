@@ -62,4 +62,14 @@ describe("hero", function(){
     }
     assert.deepEqual(hero1.tasks, tasks);
   });
+
+  it("can view tasks", function(){
+    for(var task of tasks){
+      hero1.addTask(task);
+    }
+
+    var expected = "task 1\ntask 2\ntask 3\ntask 4\ntask 5"
+    var result = hero1.viewTasks(function(task){return task.description});
+    assert.strictEqual(result, expected);
+  });
 });
